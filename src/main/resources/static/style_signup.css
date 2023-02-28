@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+    
+        .signinbox{
+            position:absolute;
+            top:40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width:800px;
+            height: 700px;
+            background: white ;
+            border-radius: 20px;
+            padding:30px;
+            box-shadow: 2px 2px 50px  sandybrown;
+            
+        }
+        .signinbox h1{
+            text-align: center;
+        }
+        .signin-top{
+          padding-bottom: 20px;
+            border-bottom: 3px solid black;
+            margin-bottom: 20px;
+        }
+        .signinbox .red{
+          color:red;
+        }
+        .signinbox .nassasary{
+          float:right;
+        }
+        .signinbox form{
+            box-sizing: border-box;
+            padding: 0 40px;
+        }
+
+        .signinbox table .inputarea{
+          width:250px;
+          position:relative;
+            border:.5px solid silver;
+            border-radius: 5px;
+            height: 40px;
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .inputarea input{
+            width: 100%;
+            padding: 5px;
+            border:none;
+            outline: none;
+            background: none;
+        }
+
+        input[type='radio']:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+        input[type='radio']:checked:after{
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: orangered;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+        margin-right: 20px;
+      }
+      .distinct{
+        height: 40px;
+        width:60px;
+        border-radius: 5px;
+        border:.5px solid silver;
+      }
+      .signin table td {
+        margin: 100px;
+      }
+      input[type="submit"]{
+            width:400px;
+            height:50px;
+            border-radius: 25px;
+            margin: 20px 0 5px 0;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover{
+          background-color:  #fec376;
+        }
+        input[type="reset"]{
+            width:100%;
+            height:40px;
+            border-radius: 25px;
+            margin: 1px 0;
+            cursor: pointer;
+        }
+        input[type="reset"]:hover{
+        background-color: lightgray;
+        }
+      h3{
+        margin-bottom: 10px;
+      }
+      input[type="checkbox"]{
+        display: none;
+    
+      }
+      .choice~label{
+        font-size: 20px;
+        font-weight: bold;
+        border: 1px solid gray;
+        background-color: rgb(236, 236, 236);
+        padding:5px;
+        margin:25px 5px;
+        border-radius: 15px;
+      }
+      .choice:checked+label{
+        background-color:#b9e4c9;
+      }

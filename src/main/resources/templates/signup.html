@@ -1,0 +1,56 @@
+
+<html layout:decorate="~{layout}">
+
+
+<div layout:fragment="content"  class="main">
+      <div class="signinbox">
+        <div class="signin-top">
+        <h1>회원가입</h1>
+        <div class="nassasary"><span class="red">*</span> 필수입력사항 </div>
+        </div>
+        <form name="signin" th:action="@{/user/listup}" th:object="${eattemUserForm}" method="post" >
+       
+            <table>
+                <tr><td><span class="red">*</span>ID</td><td class="inputarea"><input type="text" placeholder="hello@eat-tem.co.kr" th:field="*{id}"></td><td><button class="distinct">중복확인</button></td></tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td><span class="red">*</span>PW</td><td class="inputarea"><input type="password" placeholder="대/소문자 구분 (최소 8글자)" th:field="*{pw1}"></td></tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td><span class="red">*</span>PW 확인</td><td class="inputarea"><input type="password" placeholder="암호를 다시 입력해주세요" th:field="*{pw2}"></td></tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td><span class="red">*</span>닉네임</td><td class="inputarea"><input type="text" placeholder="최소 3글자" th:field="*{nickname}"></td><td><button class="distinct">중복확인</button></tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;&nbsp;성별</td><td> <input type="radio" value="female"> &nbsp;&nbsp;&nbsp;여성 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="male"> &nbsp;&nbsp;&nbsp;남성 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="none"> &nbsp;&nbsp;&nbsp;선택안함 </td> </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td colspan="2"><h3>&nbsp;&nbsp;내 잇템 찾기</h3></td></tr>
+                <tr><td colspan="3">
+                    <input type="checkbox" name="taste" class="choice" id="crispy"><label for="crispy">#바삭한</label>
+                    <input type="checkbox" name="taste" class="choice" id="chewy"><label for="chewy">#쫀득한</label>
+                    <input type="checkbox" name="taste" class="choice" id="spicy"><label for="spicy">#매콤한</label>
+                    <input type="checkbox" name="taste" class="choice" id="protine"><label for="protine">#단백질충전</label>
+                    <input type="checkbox" name="taste" class="choice" id="noflour"><label for="noflour">#노밀가루</label>
+                    <input type="checkbox" name="taste" class="choice" id="nutty"><label for="nutty">#고소한</label><br><br>
+                    <input type="checkbox" name="taste" class="choice" id="soft"><label for="soft">#부드러운</label>
+                    <input type="checkbox" name="taste" class="choice" id="salty"><label for="salty">#짭짤한</label>
+                    <input type="checkbox" name="taste" class="choice" id="creamy"><label for="creamy">#생크림가득</label>
+                    <input type="checkbox" name="taste" class="choice" id="memory"><label for="memory">#추억의맛</label>
+                    <input type="checkbox" name="taste" class="choice" id="fullraw"><label for="fullraw">#원물가득</label><br><br>
+                    <input type="checkbox" name="taste" class="choice" id="nondairy"><label for="nondairy">#유당없는</label>
+                    <input type="checkbox" name="taste" class="choice" id="mintchoco"><label for="mintchoco">#민초러버</label>
+                    <input type="checkbox" name="taste" class="choice" id="old"><label for="old">#할매입맛</label>
+                    <input type="checkbox" name="taste" class="choice" id="exotic"><label for="exotic">#이국적인</label>
+                    <input type="checkbox" name="taste" class="choice" id="sweet"><label for="sweet">#달달한</label>
+                    <input type="checkbox" name="taste" class="choice" id="sour"><label for="sour">#새콤한</label>
+
+                	</td>
+                </tr>
+                
+                <tr><td></td><td align="center"><input type="submit" value="등록"><br><input type="reset" value="취소"></td></tr>
+                
+            </table>
+ 		<div th:replace="~{form_errors :: formErrorsFragment}"></div>
+        </form>
+        	
+      </div>
+  </div>
+
+</html>

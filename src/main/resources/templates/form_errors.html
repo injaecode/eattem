@@ -1,0 +1,5 @@
+		<!-- 모든 뷰페이지에서 공통으로 validation 확인하는 오류 창 -->
+		
+		<div th:fragment="formErrorsFragment" role="aleart" th:if="${#fields.hasAnyErrors()}">
+			<div th:each="err: ${#fields.allErrors()}" th:text="${err}"></div>
+		</div>

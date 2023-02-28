@@ -1,0 +1,84 @@
+
+ <header th:fragment="headerFragment" class="header">
+    <nav>
+        <div class="navbar">
+            <input type="checkbox" name="slider" id="menu-btn">
+            <label for="menu-btn" class="menu-icon"><i class="fas fa-bars"></i></label>
+        
+            <div class="logo"><a href="index.html"><img src="./logo.png" width="100px"></a></div>
+            <ul class="nav-links">
+                <li>
+                <a href="#" class="desktop-item">카테고리</a>
+                <input type="checkbox" id="showMega">
+                <label for="showMega" class="mobile-item">카테고리</label>
+                <div class="mega-box">
+                    <div class="content">
+                        <div class="row">
+                            <h4>품목 별</h4>
+                            <ul class="mega-links">
+                                <li><a href="">봉지 과자</a></li>
+                                <li><a href="">박스 과자</a></li>
+                                <li><a href="">베이커리</a></li>
+                                <li><a href="">아이스크림</a></li>
+                                <li><a href="">음료</a></li>
+                                <li> &nbsp;</li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h4>제조사 별</h4>
+                            <ul class="mega-links">
+                                <li><a href="#">농심</a></li>
+                                <li><a href="#">오리온</a></li>
+                                <li><a href="#">해태</a></li>
+                                <li><a href='#'>삼립</a></li>
+                                <li><a href='#'>매일유업</a></li>
+                                <li><a href='#'>남양유업</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h4>판매처 별</h4>
+                            <ul class="mega-links">
+                                <li><a href="#">편의점</a></li>
+                                <li><a href="#">대형마트</a></li>
+                                <li><a href="#">자체스토어</a></li>
+                                <li><a href="#">온라인</a></li>
+                                <li> &nbsp;</li>
+                                <li> &nbsp;</li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h4>영양성분 별</h4>
+                            <ul class="mega-links">
+                                <li><a href="#">제로</a></li>
+                                <li><a href="#">저지방</a></li>
+                                <li><a href="#">Protein Up</a></li>
+                                <li><a href="#">알러지 Free</a></li>
+                                <li> &nbsp;</li>
+                                <li> &nbsp;</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                </li>
+                <li>
+                    <a href="#" class="desktop-item">잇템 랭킹</a>
+                    <input type="checkbox" id="showDrop">
+                    <label for="showDrop" class="mobile-item">잇템 랭킹</label>
+                    <ul class="drop-menu">
+                        <li><a href="#">Jan 4주차</a></li>
+                        <li><a href="#">Jan 3주차</a></li>
+                        <li><a href="#">Jan 2주차</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">공지사항</a></li>
+                <li><a th:href="@{/login}">로그인</a></li>
+            </ul>
+            <form action="#" class="search-box">
+                <input type="text" placeholder="Find your Eat-tem!">
+                <button type="submit" class="search-icon"><i class="fas fa-search"></i></button>
+            </form>
+          
+        </div>
+    </nav>
+</header>
