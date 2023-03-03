@@ -62,20 +62,15 @@
                 </div>
                 </li>
                 <li>
-                    <a href="#" class="desktop-item">잇템 랭킹</a>
+                    <a th:href="@{/my_eattem}" class="desktop-item">내 잇템 찾기</a>
                     <input type="checkbox" id="showDrop">
-                    <label for="showDrop" class="mobile-item">잇템 랭킹</label>
-                    <ul class="drop-menu">
-                        <li><a href="#">Jan 4주차</a></li>
-                        <li><a href="#">Jan 3주차</a></li>
-                        <li><a href="#">Jan 2주차</a></li>
-                    </ul>
+                    <label for="showDrop" class="mobile-item">내 잇템 찾기</label>
                 </li>
                 <li><a href="#">공지사항</a></li>
                 <li><a th:href="@{/login}">로그인</a></li>
             </ul>
-            <form action="#" class="search-box">
-                <input type="text" placeholder="Find your Eat-tem!">
+            <form th:action="@{/}" method="get" class="search-box" >
+                <input name="searchQuery" type="search" placeholder="Find your Eat-tem!">
                 <button type="submit" class="search-icon"><i class="fas fa-search"></i></button>
             </form>
           

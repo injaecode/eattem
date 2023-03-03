@@ -1,0 +1,233 @@
+@charset "UTF-8";
+
+
+
+.aside_l{
+    grid-area: aside_l;
+}
+
+
+
+
+/*---------메인1_슬라이더-------------*/
+.article1{
+    padding-top: 50px;
+    grid-area:article1;
+    height:100%;
+    width:100%;
+    align-items: center;
+    overflow:hidden;
+    box-sizing:border-box;
+
+}
+.article h2{
+    text-align: left;
+}
+#slide_container
+{
+    float: left;
+    width: 100%;
+    height: 350px;
+    padding: 30px 10px 10px 20px;
+    overflow-x: hidden;
+    align-items: center;
+    text-align: center;
+
+}
+#slide_container > ul
+{
+    width: 1000px;
+    height: 300px;
+    white-space: nowrap;
+    animation: slide infinite 5s alternate;
+}
+
+#slide_container:hover > ul
+{
+    animation-play-state: paused;
+}
+
+#slide_container > ul > li
+{
+    display: inline-block;
+    width: 450px;
+    height: 100px;
+    margin-right: 10px;
+
+}
+@keyframes slide {
+    0% {
+      margin-left: -1200px;
+    }
+    25% {
+      margin-left: -900px;
+    }
+    50% {
+      margin-left: -600px;
+    }
+    
+    75% {
+      margin-left: -300px;
+    }
+    100% {
+      margin-left: 0px;
+    }
+  }
+.slide-review img{
+    width:220px;
+    border-radius: 10px;
+}
+.slidebox .slideitem{
+    position:relative;
+    display:inline-block;
+    vertical-align: middle;
+    height:100%;
+    transition:all .3s;
+}
+.slideitem .slide-review{
+    height:240px; width:450px; 
+    align-self: center; 
+    border-radius: 20px;
+    background-color: white;
+    padding:10px;
+    box-shadow: 5px 5px 10px#eaecd7;
+}
+.star{
+    color:#fd5523;
+}
+.slideitem .review-txt{
+    padding-top:50px;
+    background-color: transparent;
+    font-size: 20px;
+}
+  
+.slideitem div a{
+    float:left;
+}
+  
+
+
+
+
+
+/*-----------오늘의 신상-------------*/
+.article2 {
+    grid-area: article2;
+    height:100%;
+    width:100%;
+    align-items: center;
+    overflow:hidden;
+    box-sizing:border-box;
+
+}
+ 
+.article2 h2{
+    text-align: left;   
+}
+
+.prdlist1{
+    width:100%;
+    overflow:hidden;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 10px 10px 20px;
+}
+
+  .box{
+    height:230px;width:200px;
+    margin:5px 10px;
+   ;
+  
+  }
+  .box img{
+    border-radius: 20px;
+    margin:10px;
+    box-shadow: 3px 3px 3px #eaecd7;
+  }
+  .box a{
+    line-height: 20px;
+    font-size: 20px;
+  }
+  #cu{
+    border-radius: 10px;
+    background-color: purple;
+    color:white;
+    padding: 3px;
+    font-size: 12px;
+  }
+  
+  #gs{
+    border-radius: 10px;
+    background-color: rgb(33, 119, 189);
+    color:white;
+    padding: 3px;
+    font-size: 12px;
+  }
+  #vegan{
+    border-radius: 10px;
+    background-color: rgb(33, 189, 77);
+    color:white;
+    padding: 3px;
+    font-size: 12px;
+  }
+  
+  #none{
+    border-radius: 10px;
+    background-color: transparent;
+    color:white;
+    padding: 3px;
+    font-size: 12px;
+  }
+  
+
+
+
+
+
+/*----------메인 3행---------*/
+.article3 {
+    grid-area: article3;
+    height:100%;
+    width:100%;
+    align-items: center;
+    overflow:hidden;
+    box-sizing:border-box;
+  }
+  
+  .prdlist2{
+    width:100%;
+    overflow:hidden;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 10px 10px 20px;
+  }
+  
+  .article3 h2{
+    text-align: left;
+   
+  }
+  
+  #username{
+    color:#fd5523;
+   
+  }
+  #keyword{
+    text-decoration: underline;
+    background:gainsboro;
+    border-radius: 20px;
+  }
+
+  
+.aside_r{
+    grid-area: aside_r;
+}
+
+.footer{
+
+}

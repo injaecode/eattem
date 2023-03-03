@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>eat-tem</title>
+    <title>eat-tem!</title>
     <link rel="stylesheet" type ="text/css" th:href="@{/style.css}">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/056bc9c16a.css" crossorigin="anonymous">
      <link rel="icon" href="/favicon.ico">
      <link rel="stylesheet" type ="text/css" th:href="@{/style_signup.css}">
+     <link rel="stylesheet" type ="text/css" th:href="@{/style_index.css}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/056bc9c16a.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/056bc9c16a.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
 	<header th:replace="~{header :: headerFragment}"></header>
 	<th:block layout:fragment="content"></th:block>
-	
+    <div th:replace="~{footer::footerFragment}"></div>
 </body>
 </html>
