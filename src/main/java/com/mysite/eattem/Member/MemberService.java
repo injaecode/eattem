@@ -37,19 +37,7 @@ public class MemberService implements UserDetailsService{
 	        }
 	}
 	
-	//email 중복 검사
-    public HashMap<String, Object> emailOverlap(String email) {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("result", memberRepository.existsByEmail(email));
-        return map;
-    }
 
-    //닉네임 중복 검사
-    public HashMap<String, Object> nicknameOverlap(String nickname) {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("result", memberRepository.existsByNickname(nickname));
-        return map;
-    }
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
