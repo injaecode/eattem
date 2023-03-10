@@ -1,43 +1,62 @@
-<!DOCTYPE html>
-<html layout:decorate="~{layouts/layout1}">
-<th:block layout:fragment="script">
+<html layout:decorate="~{layout}">
 
-    <script th:inline="javascript">
-        $(document).ready(function(){
-            var errorMessage = [[${errorMessage}]];
-            if(errorMessage != null){
-                alert(errorMessage);
-            }
+	<div layout:fragment="content"  class="main">
+	 <div class="article1" align="center">
+	 <h1>상품 등록</h1>
+	 <form name="itemUpload" th:action="@{/eattem/create}" th:object="${uploadFormDto}" method="post" >
+	 <table style="table-layout: fixed; font-size: 20px">
 
-            bindDomEvent();
-
-        });
-
-        function bindDomEvent(){
-            $(".custom-file-input").on("change", function() {
-                var fileName = $(this).val().split("\\").pop();  //이미지 파일명
-                var fileExt = fileName.substring(fileName.lastIndexOf(".")+1); // 확장자 추출
-                fileExt = fileExt.toLowerCase(); //소문자 변환
-
-                if(fileExt != "jpg" && fileExt != "jpeg" && fileExt != "gif" && fileExt != "png" && fileExt != "bmp"){
-                    alert("이미지 파일만 등록이 가능합니다.");
-                    return;
-                }
-
-                $(this).siblings(".custom-file-label").html(fileName);
-            });
-        }
-
-    </script>
-
-</th:block>
-<div layout:fragment="content">
-
-    <form role="form" method="post" enctype="multipart/form-data" th:object="${uploadFormDto}">
+		 <tr ><td width="100" height="40">파일</td><td><input type="file" name="파일"></td></tr>
+	 	<tr><td height="40">품명 </td><td ><input type="text" ></td></tr> 
+	 	<tr><td height="40">제품 소개 </td><td ><textarea></textarea></td></tr> 
+	 	<tr><td height="40">제조사 </td><td>
+	 		<select>
+	 		<option value="제조사">제조사</option>
+	 		<option value="농심">농심</option>
+	 		<option value="오리온">오리온</option>
+	 		<option value="해태">해태</option>
+	 		<option value="풀무원">풀무원</option>
+	 		<option value="노브랜드">노브랜드</option>
+	 		<option value="롯데제과">롯데제과</option>
+	 		<option value="빙그레">빙그레</option>
+	 		<option value="크라운">크라운</option>
+	 		<option value="청우식품">청우식품</option>
+		 	</select>
+	 	</td></tr> 
+	 	<tr><td>판매처 </td>
+	 	<td colspan="3">
+	 	<label><input type="checkbox"  value="대형마트">&nbsp;&nbsp;대형마트</label>
+	 	<label><input type="checkbox"  value="편의점">&nbsp;&nbsp;편의점</label>
+	 	<label><input type="checkbox" value="자체판매">&nbsp;&nbsp;자체판매</label>
+	 	<br><br></td></tr>
+	 	<tr><td>취향</td><td>
+	 	    <input type="checkbox" name="taste" value="crispy" class="choice" id="crispy"><label for="crispy">#바삭한</label>
+                    <input type="checkbox" name="taste" value="chewy" class="choice" id="chewy"><label for="chewy">#쫀득한</label>
+                    <input type="checkbox" name="taste" value="spicy" class="choice" id="spicy"><label for="spicy">#매콤한</label>
+                    <input type="checkbox" name="taste" value="protine" class="choice" id="protine"><label for="protine">#단백질충전</label>
+                    <input type="checkbox" name="taste" value="noflour" class="choice" id="noflour"><label for="noflour">#노밀가루</label>
+                    <input type="checkbox" name="taste" value="nutty" class="choice" id="nutty"><label for="nutty">#고소한</label><br><br>
+                    <input type="checkbox" name="taste" value="soft" class="choice" id="soft"><label for="soft">#부드러운</label>
+                    <input type="checkbox" name="taste" value="salty" class="choice" id="salty"><label for="salty">#짭짤한</label>
+                    <input type="checkbox" name="taste" value="creamy" class="choice" id="creamy"><label for="creamy">#생크림가득</label>
+                    <input type="checkbox" name="taste" value="memoraable" class="choice" id="memoraable"><label for="memoraable">#추억의맛</label>
+                    <input type="checkbox" name="taste" value="fulling" class="choice" id="fulling"><label for="fulling">#원물가득</label><br><br>
+                    <input type="checkbox" name="taste" value="nondairy" class="choice" id="nondairy"><label for="nondairy">#유당없는</label>
+                    <input type="checkbox" name="taste" value="mintchoco" class="choice" id="mintchoco"><label for="mintchoco">#민초러버</label>
+                    <input type="checkbox" name="taste" value="old" class="choice" id="old"><label for="old">#할매입맛</label>
+                    <input type="checkbox" name="taste" value="exotic" class="choice" id="exotic"><label for="exotic">#이국적인</label>
+                    <input type="checkbox" name="taste" value="sweet" class="choice" id="sweet"><label for="sweet">#달달한</label>
+                    <input type="checkbox" name="taste" value="sour" class="choice" id="sour"><label for="sour">#새콤한</label>
+				
+	 	</td> 
+	  <tr><td align="center" colspan="3"><button type="submit" class="enroll">저장</button></td></tr> 
+	 	
+	  </table>
+	 </form>
+	 	
 	
-		<div>제품명</div>
-	<input type="text" th:field="*{itmName}" class="form-control" placeholder="제품명을 입력해주세요">
-	</form>
-</div>
+	 </div>
+	</div>
 
 </html>
+

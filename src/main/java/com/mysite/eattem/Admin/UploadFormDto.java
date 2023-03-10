@@ -1,6 +1,6 @@
 package com.mysite.eattem.Admin;
 
-import com.mysite.eattem.Myeattem.SellStatus;
+import com.mysite.eattem.Article.SellStatus;
 
 import jakarta.validation.constraints.NotBlank;
 

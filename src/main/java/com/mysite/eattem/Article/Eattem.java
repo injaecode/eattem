@@ -1,4 +1,4 @@
-package com.mysite.eattem.Myeattem;
+package com.mysite.eattem.Article;
 
 import java.util.List;
 

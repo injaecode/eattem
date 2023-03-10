@@ -5,7 +5,7 @@
             <input type="checkbox" name="slider" id="menu-btn">
             <label for="menu-btn" class="menu-icon"><i class="fas fa-bars"></i></label>
         
-            <div class="logo"><a href="index.html"><img src="./logo.png" width="100px"></a></div>
+            <div class="logo"><a href="index.html"><img src="/logo.png" width="100px"></a></div>
             <ul class="nav-links">
                 <li>
                 <a href="#" class="desktop-item">카테고리</a>
@@ -67,7 +67,8 @@
                     <label for="showDrop" class="mobile-item">내 잇템 찾기</label>
                 </li>
                 <li><a href="#">공지사항</a></li>
-                <li><a th:href="@{/login}">로그인</a></li>
+                <li><a th:href="@{/member/login}" sec:authorize="isAnonymous()">로그인</a>
+                <a th:href="@{/member/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
             </ul>
             <form th:action="@{/}" method="get" class="search-box" >
                 <input name="searchQuery" type="search" placeholder="Find your Eat-tem!">

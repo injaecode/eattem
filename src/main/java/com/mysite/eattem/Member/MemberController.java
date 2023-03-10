@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,10 +20,7 @@ public class MemberController {
 	
 	private final MemberService memberService;
 	private final PasswordEncoder passwordEncoder;
-//	@GetMapping("/")
-//	public String signup(EattemUserForm eattemUserform) {
-//		return "signup";
-//	}
+
 	
     @GetMapping("/login")
     public String loginMember() {
@@ -41,8 +39,15 @@ public class MemberController {
 		
 		return "signup";
 	}
-	
-	@PostMapping("/new")
+//	
+//	@PostMapping("/create")
+//	public String createMember(MemberFormDto dto) {
+//		this.memberService.saveMember(dto.getEmail(), dto.getPw1(), dto.getGender(), dto.getNickname(), dto.getTaste());
+//		System.out.println(dto.toString());
+//		return "redirect:/";
+//	}
+//	
+	@PostMapping("/create")
 		public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model) {
 			if(bindingResult.hasErrors()) {
 				return "signup";
@@ -53,7 +58,8 @@ public class MemberController {
 				return "signup";
 			}
 	        try {
-	        	this.memberService.saveMember(memberFormDto.getId(), memberFormDto.getPw1(), memberFormDto.getNickname());
+	        	Member member=Member.saveMember(memberFormDto, passwordEncoder);
+	        	this.memberService.saveMember(member);
 	        }catch(DataIntegrityViolationException e) {
 	            e.printStackTrace();
 	            bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
@@ -63,10 +69,12 @@ public class MemberController {
 	            bindingResult.reject("signupFailed", e.getMessage());
 	            return "signup";
 	        }
-		
+		   System.out.println(memberFormDto.toString());
 			
-			return "redirect:/";
+			return "redirect:/member/login";
 		}
 	
+
+
 	
 }

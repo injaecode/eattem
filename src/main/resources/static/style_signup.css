@@ -7,7 +7,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width:800px;
-            height: 700px;
+            height: 800px;
             background: white ;
             border-radius: 20px;
             padding:30px;
@@ -78,20 +78,24 @@
         border: 2px solid white;
         margin-right: 20px;
       }
+      .fieldError{
+      	color: red;
+      	}
       .distinct{
         height: 40px;
         width:60px;
         border-radius: 5px;
         border:.5px solid silver;
+        cursor: pointer;
       }
       .signin table td {
         margin: 100px;
       }
-      input[type="submit"]{
-            width:400px;
+      .enroll{
+            width:600px;
             height:50px;
-            border-radius: 25px;
-            margin: 20px 0 5px 0;
+            border-radius: 40px ;
+            margin: 20px 0 5px 0 ;
             cursor: pointer;
         }
         input[type="submit"]:hover{
@@ -110,7 +114,7 @@
       h3{
         margin-bottom: 10px;
       }
-      input[type="checkbox"]{
+      .choice{
         display: none;
     
       }

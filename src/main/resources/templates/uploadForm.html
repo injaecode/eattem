@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <div class="signinbox">
+        <h1>상품 등록</h1>
+        <form name="itemUpload" th:action="@{/eattem/create}" th:object="${uploadFormDto}" method="post" >
+        <table>
+            <tr><td>파일</td><td><input type="file" name="파일" id=""></td></tr>
+
+            <tr><td>제품명 :</td><td><input type="text" ></td></tr> 
+            <tr><td>제품 소개 :</td><td><input type="textarea" width="100"></td></tr> 
+            <tr><td>제조사 :</td><td>
+                <select>
+                <option value="제조사">제조사</option>
+                <option value="농심">농심</option>
+                <option value="오리온">오리온</option>
+                <option value="해태">해태</option>
+                <option value="풀무원">풀무원</option>
+                <option value="노브랜드">노브랜드</option>
+                <option value="롯데제과">롯데제과</option>
+                <option value="빙그레">빙그레</option>
+                <option value="크라운">크라운</option>
+                <option value="청우식품">청우식품</option>
+                </select>
+            </td></tr> 
+            <tr><td>판매처 :</td>
+            <td colspan="3">
+            <label><input type="checkbox" class="choice" value="대형마트">대형마트</label>
+            <label><input type="checkbox" class="choice" value="편의점">편의점</label>
+            <label><input type="checkbox" class="choice" value="자체판매">자체판매</label>
+            </td></tr> 
+            
+         </table>
+         <button type="submit">저장</button>
+        </form>
+            
+       
+        </div>
+       </div>
+</body>
+</html>

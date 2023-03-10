@@ -1,16 +1,27 @@
 package com.mysite.eattem.Member;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class MemberService {
+public class MemberService implements UserDetailsService{
+
 
 	private final MemberRepository memberRepository;
-	private final PasswordEncoder passwordEncoder;
+
 	
 	public Member saveMember(Member member) {
 		validateDuplicateMember(member);
@@ -20,12 +31,44 @@ public class MemberService {
 	}
 	
 	private void validateDuplicateMember(Member member) {
-		Member findMember = memberRepository.findById(member.getIdx());
-		if(findMember !=null) {
-			throw new IllegalStateException("이미 가입된 회원입니다");
-		}
+	     Optional<Member> findMember = this.memberRepository.findByemail(member.getEmail());
+	        if(findMember.isPresent()){
+	            throw new IllegalStateException("이미 가입된 회원입니다.");
+	        }
 	}
 	
+	//email 중복 검사
+    public HashMap<String, Object> emailOverlap(String email) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("result", memberRepository.existsByEmail(email));
+        return map;
+    }
+
+    //닉네임 중복 검사
+    public HashMap<String, Object> nicknameOverlap(String nickname) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("result", memberRepository.existsByNickname(nickname));
+        return map;
+    }
+
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		 Optional<Member> member = this.memberRepository.findByemail(email);
+
+	        if(member.isEmpty()){
+	            throw new UsernameNotFoundException("사용자를 찾을 수 없습니다");
+	        }
+	        Member members=member.get();
+	        List<GrantedAuthority> authorities = new ArrayList<>();
+	        if("ADMIN".equals(email)) {
+	        	authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
+	        }else {
+	        	authorities.add(new SimpleGrantedAuthority(Role.USER.getValue()));
+	        }
+	        
+	        return new User(members.getEmail(),members.getPw(),authorities);
+	    }
+
 
 
 }
