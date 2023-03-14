@@ -1,0 +1,69 @@
+<html layout:decorate="~{layout}">
+
+	<div layout:fragment="content"  class="main">
+	 <div class="uploadbox" align="center">
+	 <h1>상품 수정</h1>
+	 <form name="itemUpload" enctype="multipart/form-data" th:action="@{/eattem/update/{id}(id=${Article.id})}" method="post" >
+	 <table class="pdForm" style="table-layout: fixed; font-size: 20px">
+		<tr><td>&nbsp;</td></tr>
+		 <tr><td width="100">파일</td><td><input type="file" name="url"></td></tr>
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td>품명 </td><td class="inputarea"><input type="text" name="pdName" th:value="${Article.pdName}"></td></tr> 
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td>가격 </td><td class="inputarea"><input type="text" th:value="${Article.price}"></td></tr>
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td>제품 소개 </td><td class="inputarea"><textarea name="pdInfo" th:text="${Article.pdInfo}" ></textarea></td></tr> 
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td>제조사 </td><td>
+	 		<select name="manufacturer" th:value="${Article.manufacturer}" >
+	 		<option value="제조사">제조사</option>
+	 		<option value="농심">농심</option>
+	 		<option value="오리온">오리온</option>
+	 		<option value="해태">해태</option>
+	 		<option value="풀무원">풀무원</option>
+	 		<option value="노브랜드">노브랜드</option>
+	 		<option value="롯데제과">롯데제과</option>
+	 		<option value="빙그레">빙그레</option>
+	 		<option value="크라운">크라운</option>
+	 		<option value="청우식품">청우식품</option>
+		 	</select>
+	 	</td></tr> 
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td height="50">판매처 </td>
+	 	
+	 	<td colspan="3">
+	 	<label><input type="checkbox" name="vender" value="대형마트" th:value="${Article.vender}">&nbsp;&nbsp;대형마트</label>
+	 	<label><input type="checkbox" name="vender" value="편의점" th:value="${Article.vender}">&nbsp;&nbsp;편의점</label>
+	 	<label><input type="checkbox" name="vender" value="자체판매" th:value="${Article.vender}">&nbsp;&nbsp;자체판매</label>
+	 	<br><br></td></tr>
+	 	<tr><td>취향</td><td>
+	 	    <input type="checkbox" th:value="${Article.taste}" name="taste" value="crispy" class="choice" id="crispy"><label for="crispy">#바삭한</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="chewy" class="choice" id="chewy"><label for="chewy">#쫀득한</label>
+            <input type="checkbox" th:value="${Article.taste}"  name="taste" value="spicy" class="choice" id="spicy"><label for="spicy">#매콤한</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="protine" class="choice" id="protine"><label for="protine">#단백질충전</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="noflour" class="choice" id="noflour"><label for="noflour">#노밀가루</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="nutty" class="choice" id="nutty"><label for="nutty">#고소한</label><br><br>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="soft" class="choice" id="soft"><label for="soft">#부드러운</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="salty" class="choice" id="salty"><label for="salty">#짭짤한</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="creamy" class="choice" id="creamy"><label for="creamy">#생크림가득</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="memoraable" class="choice" id="memoraable"><label for="memoraable">#추억의맛</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="fulling" class="choice" id="fulling"><label for="fulling">#원물가득</label><br><br>
+            <input type="checkbox" th:value="${Article.taste}"  name="taste" value="nondairy" class="choice" id="nondairy"><label for="nondairy">#유당없는</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="mintchoco" class="choice" id="mintchoco"><label for="mintchoco">#민초러버</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="old" class="choice" id="old"><label for="old">#할매입맛</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="exotic" class="choice" id="exotic"><label for="exotic">#이국적인</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="sweet" class="choice" id="sweet"><label for="sweet">#달달한</label>
+            <input type="checkbox" th:value="${Article.taste}" name="taste" value="sour" class="choice" id="sour"><label for="sour">#새콤한</label>
+				
+	 	</td> 
+	  <tr><td align="center" colspan="3"><input type="submit" class="enroll" value="저장"></td></tr> 
+	 	
+	  </table>
+	 </form>
+	 	
+	
+	 </div>
+	</div>
+
+</html>
+

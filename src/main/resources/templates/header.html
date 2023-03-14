@@ -69,6 +69,7 @@
                 <li><a href="#">공지사항</a></li>
                 <li><a th:href="@{/member/login}" sec:authorize="isAnonymous()">로그인</a>
                 <a th:href="@{/member/logout}" sec:authorize="isAuthenticated()">로그아웃</a></li>
+                <li><a th:href="@{/eattem/upload}" sec:authorize="isAuthenticated()">제품 등록</a></li>
             </ul>
             <form th:action="@{/}" method="get" class="search-box" >
                 <input name="searchQuery" type="search" placeholder="Find your Eat-tem!">

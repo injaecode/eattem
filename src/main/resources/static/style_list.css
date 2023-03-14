@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.prodList{
+            position:absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width:80%;
+            height: 1300px;
+            background: white ;
+            border-radius: 20px;
+            padding:30px;
+            display:flex;
+            align-items:center;
+ 			justify-content:center;
+   
+        }
+ .card-body{
+ 			width:27%;
+ 			height:400px;
+ 			text-align:center;
+ 			
+ }

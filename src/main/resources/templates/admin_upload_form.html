@@ -1,16 +1,21 @@
 <html layout:decorate="~{layout}">
 
 	<div layout:fragment="content"  class="main">
-	 <div class="article1" align="center">
+	 <div class="uploadbox" align="center">
 	 <h1>상품 등록</h1>
-	 <form name="itemUpload" th:action="@{/eattem/create}" th:object="${uploadFormDto}" method="post" >
-	 <table style="table-layout: fixed; font-size: 20px">
-
-		 <tr ><td width="100" height="40">파일</td><td><input type="file" name="파일"></td></tr>
-	 	<tr><td height="40">품명 </td><td ><input type="text" ></td></tr> 
-	 	<tr><td height="40">제품 소개 </td><td ><textarea></textarea></td></tr> 
-	 	<tr><td height="40">제조사 </td><td>
-	 		<select>
+	 <form name="itemUpload" enctype="multipart/form-data" th:action="@{/eattem/create}" th:object="${articleFormDto}" method="post" >
+	 <table class="pdForm" style="table-layout: fixed; font-size: 20px">
+		<tr><td>&nbsp;</td></tr>
+		 <tr><td width="100">파일</td><td><input type="file" name="file" ></td></tr>
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td>품명 </td><td class="inputarea"><input type="text" th:field="*{pdName}"></td></tr> 
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td>가격 </td><td class="inputarea"><input type="text" name="price"></td></tr>
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td>제품 소개 </td><td class="inputarea"><textarea name="pdInfo"></textarea></td></tr> 
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td>제조사 </td><td>
+	 		<select name="manufacturer" >
 	 		<option value="제조사">제조사</option>
 	 		<option value="농심">농심</option>
 	 		<option value="오리온">오리온</option>
@@ -23,11 +28,13 @@
 	 		<option value="청우식품">청우식품</option>
 		 	</select>
 	 	</td></tr> 
-	 	<tr><td>판매처 </td>
+	 	<tr><td>&nbsp;</td></tr>
+	 	<tr><td height="50">판매처 </td>
+	 	
 	 	<td colspan="3">
-	 	<label><input type="checkbox"  value="대형마트">&nbsp;&nbsp;대형마트</label>
-	 	<label><input type="checkbox"  value="편의점">&nbsp;&nbsp;편의점</label>
-	 	<label><input type="checkbox" value="자체판매">&nbsp;&nbsp;자체판매</label>
+	 	<label><input type="checkbox" name="vender" value="대형마트">&nbsp;&nbsp;대형마트</label>
+	 	<label><input type="checkbox" name="vender" value="편의점">&nbsp;&nbsp;편의점</label>
+	 	<label><input type="checkbox" name="vender" value="자체판매">&nbsp;&nbsp;자체판매</label>
 	 	<br><br></td></tr>
 	 	<tr><td>취향</td><td>
 	 	    <input type="checkbox" name="taste" value="crispy" class="choice" id="crispy"><label for="crispy">#바삭한</label>
@@ -49,7 +56,7 @@
                     <input type="checkbox" name="taste" value="sour" class="choice" id="sour"><label for="sour">#새콤한</label>
 				
 	 	</td> 
-	  <tr><td align="center" colspan="3"><button type="submit" class="enroll">저장</button></td></tr> 
+	  <tr><td align="center" colspan="3"><input type="submit" class="enroll" value="저장"></td></tr> 
 	 	
 	  </table>
 	 </form>

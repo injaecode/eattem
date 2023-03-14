@@ -1,7 +1,11 @@
 
-<html layout:decorate="~{layout}">
-
-
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" 
+crossorigin="anonymous"></script>
+</head>
+<body>
 <div layout:fragment="content"  class="main">
       <div class="signinbox">
         <div class="signin-top">
@@ -14,7 +18,7 @@
             <table>
              
                 <tr><td><span class="red">*</span>이메일</td><td class="inputarea"><input type="text" placeholder="hello@eat-tem.co.kr" th:field="*{email}" id="email" name="email"></td>
-                <td><input class="distinct" type="button" value="중복확인"></input></td></tr>
+                <td><input class="distinct" type="button" value="중복확인" id="idchk"></input></td></tr>
                 <tr><td>&nbsp;</td><td colspan="2" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">Incorrect data</td></tr>
              		
                 <tr><td><span class="red">*</span>PW</td><td class="inputarea"><input type="password" placeholder="대/소문자 구분 (최소 8글자)" th:field="*{pw1}"></td></tr>
@@ -62,6 +66,50 @@
       </div>
       
   </div>
-
-
+<script type="text/javascript">
+		var idck = 0;
+		$(function() {
+		    //idck 버튼을 클릭했을 때 
+		    $("#idchk").click(function() {
+		        
+		        //userid 를 param.
+		        var email =  $("#email").val(); 
+		        
+		        $.ajax({
+		            async: true,
+		            type : 'POST',
+		            data : userid,
+		            url : "idcheck.do",
+		            dataType : "json",
+		            contentType: "application/json; charset=UTF-8",
+		            success : function(data) {
+		                if (data.cnt > 0) {
+		                    
+		                    alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
+		                    
+		                    $("#divInputId").addClass("has-error")
+		                    $("#divInputId").removeClass("has-success")
+		                    $("#email").focus();
+		                    
+		                
+		                } else {
+		                    alert("사용가능한 아이디입니다.");
+		                    //아이디가 존제할 경우 빨깡으로 , 아니면 파랑으로 처리하는 디자인
+		                    $("#divInputId").addClass("has-success")
+		                    $("#divInputId").removeClass("has-error")
+		                    $("#userpwd").focus();
+		                    //아이디가 중복하지 않으면  idck = 1 
+		                    idck = 1;
+		                    
+		                }
+		            },
+		            error : function(error) {
+		                
+		                alert("error : " + error);
+		            }
+		        });
+		    });
+		});
+    </script>
+</body>
 </html>

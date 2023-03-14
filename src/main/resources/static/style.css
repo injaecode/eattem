@@ -24,6 +24,7 @@
 
 body{
     background-color: rgb(255, 251, 230);
+    
 }
 
 li{
@@ -367,7 +368,7 @@ clear:both;
   .main{
     width:100%;
     padding-top: 80px;
-    margin-bottom: 40%;
+
     position: relative;
 
     display: grid;
@@ -376,8 +377,30 @@ clear:both;
             "aside_l article2 article2 aside_r"
             "aside_l article3 article3 aside_r";
         grid-template-columns: 10% 40% 40% 10%;
-        grid-template-rows: 500px 400px 400px;
+        grid-template-rows: 500px 500px 500px;
 
+}
+
+.uploadbox{
+            position:absolute;
+            top:40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width:900px;
+            height: 700px;
+            background: white ;
+            border-radius: 20px;
+            padding:30px;
+            box-shadow: 2px 2px 50px  sandybrown;
+            
+        }
+        
+.uploadbox textarea{
+    width: 100%;
+    padding: 5px;
+    border:none;
+    outline: none;
+    background: none;
 }
 
 .footer{

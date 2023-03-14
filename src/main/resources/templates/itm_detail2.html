@@ -1,0 +1,76 @@
+<html  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+
+<head>
+        <link rel="stylesheet" type ="text/css" th:href="@{/style_prod.css}">
+</head>
+<body>
+	<div layout:fragment="content"  class="main">
+	  <div class="aside_l"></div>
+            <div class="article1">
+                    <section class="pd_display">
+                    <input type="hidden" id="articleId" th:value="${Article.id}">
+                    <div id="pd_img">
+                        <img th:src="${Article.url}" style="width:350px">
+                    </div>
+                    <div id="pd_info">
+                        <ul>
+                        <li><h3 th:text="${Article.pdName}"></h3></li>
+                        <li><i th:text="${Article.pdInfo}">풍부한 피넛 버터로 부드러운 쿠키 식감 <br>원물 땅콩으로 한층 더 오독오독 고소하게!</i></li>
+                        <li> <table margin="10" cellspaing="10">
+                            <tr><td align="right"><b>제조사 </b> </td> <td th:text="${Article.manufacturer}">오리온</td></tr> 
+                            <tr><td align="right"><b>판매처 </b> </td> <td th:text="${Article.vender}">대형마트 슈퍼마켓 편의점</td></tr>
+                            <tr><td align="right"><b> 가격 </b></td> <td th:text="${Article.price}">1,500원</td></tr>
+                            </table>
+                        </li>
+                        <li  th:text="${Article.taste}"><a href="#"><span>#땅콩함유</span></a>&nbsp; <a href="#"><span>#추억의맛</span></a>&nbsp;<a href="#"><span>#단짠단짠</span></a> </li>
+                        </ul>
+                    </div>
+                    </section>  
+            </div>
+            <div class="article2">
+                    <div align="center">
+            <button style="padding:10px 20px" sec:authorize="isAuthenticated()"> <a th:href="@{/eattem/modify/{id}(id=${Article.id})}" >수정</a></button>
+            <button style="padding:10px 20px" sec:authorize="isAuthenticated()"><a th:href="@{/eattem/delete(id=${Article.id})}">삭제</a></button></div>
+
+            </div>
+            <div class="article3">
+                <div class="comments">
+                    <div class="commentshead" >
+                        <div class="nickname"> 닉네임 &nbsp;&nbsp;&nbsp;<b>뉴진스하입보이요</b> </div>
+                        <div class="rating">
+                            <input type="radio" name="star" id="star1">
+                            <label for="star1"></label>
+                            <input type="radio" name="star" id="star2">
+                            <label for="star2"></label>
+                            <input type="radio" name="star" id="star3">
+                            <label for="star3"></label>
+                            <input type="radio" name="star" id="star4">
+                            <label for="star4"></label>
+                            <input type="radio" name="star" id="star5">
+                            <label for="star5"></label>
+                        </div>             
+                    </div>
+					<div class=comment>
+					<div class=commentlist>
+					</div>					
+                    <div class="commnetsarea">
+                        <form name="commentInsertForm" method="post" enctype="multipart/form-date">
+                        <textarea name="comm_box" id="comm_box" cols="120" rows="6" placeholder="솔직한 후기를 남겨주세요!"></textarea>    
+                        </form>
+                        <button>등록</button>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>    
+
+        <div class="aside_l"></div>
+    </div>
+	
+	
+	
+	</div>
+</body>
+</html>
+	
